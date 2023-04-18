@@ -1,4 +1,5 @@
 import classes from "./MealItem.module.css";
+import MealItemForm from "./MealItemForm";
 
 const MealItem = (props) => {
   const price = `$${props.price.toFixed(2)}`; // toFixed method acces only two decimal number
@@ -11,7 +12,9 @@ const MealItem = (props) => {
         <div className={classes.price}>{price}</div>
       </div>
 
-      <div></div>
+      <div>
+        <MealItemForm />
+      </div>
     </li>
   );
 };
