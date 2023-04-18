@@ -1,39 +1,45 @@
-import classes from './AvailableMeals.module.css'
+import Card from "../UI/Card";
+import classes from "./AvailableMeals.module.css";
+import MealItem from "./MealItem/MealItem";
 
-const DUMMY_MEALS =[
-    {
-        id: 'm1',
-        name: 'Sushi',
-        description: 'Finest fish and veggies',
-        prices: 22.99,
-    },
-    {
-        id: 'm2',
-        name: 'Schnitzel',
-        description: 'A german speciality',
-        price: 16.5,
-    },
-    {
-        id: 'm3',
-        name: 'Barbeque Chicken',
-        description: 'Aamerican, raw, meaty',
-        price: 12.99,
-    }
-]
-
+const DUMMY_MEALS = [
+  {
+    id: "m1",
+    name: "Sushi",
+    description: "Finest fish and veggies",
+    price: 22.99,
+  },
+  {
+    id: "m2",
+    name: "Schnitzel",
+    description: "A german speciality",
+    price: 16.5,
+  },
+  {
+    id: "m3",
+    name: "Barbeque Chicken",
+    description: "Aamerican, raw, meaty",
+    price: 12.99,
+  },
+];
 
 const AvailableMeals = () => {
+  const mealsList = DUMMY_MEALS.map((meal) => (
+    <MealItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
 
-    const mealsList= DUMMY_MEALS.map((meal) => <li>{meal.name}</li>)
+  return (
+    <section className={classes.meals}>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
+    </section>
+  );
+};
 
-    return (
-        <section className={classes.meals}>
-            <ul>
-                {mealsList}
-            </ul>
-        </section>
-
-    )
-}
-
-export default AvailableMeals
+export default AvailableMeals;
